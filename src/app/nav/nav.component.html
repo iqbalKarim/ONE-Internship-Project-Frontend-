@@ -1,0 +1,62 @@
+<nav class="navbar navbar-dark navbar-expand-md fixed-top bg-dark">
+  <div class="container">
+    <div>
+      <a href="#" class="navbar-brand">E-Commerce Website</a>
+    </div>
+
+    <!-- <ul class="navbar-nav" *ngIf="loggedIn">
+      <li class="nav-item">
+        <a class="nav-link" (click)="getAllProducts()">All</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="getProducts('laptops')">Laptops</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="getProducts("cellPhones")">CellPhones</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="getProducts("apparell")">Apparell</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="getProducts("electronics")">Electronics</a>
+      </li>
+    </ul> -->
+
+    <div class="dropdown" *ngIf="loggedIn" dropdown>
+      <a class="dropdown-toggle text-light" dropdownToggle
+        >Welcome {{ model.Username }}</a
+      >
+      <div class="dropdown-menu mt-3" *dropdownMenu>
+        <a class="dropdown-item">Edit Profile</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" (click)="logout()">Logout</a>
+      </div>
+    </div>
+
+    <div>
+      <form
+        *ngIf="!loggedIn"
+        #loginForm="ngForm"
+        class="flex"
+        (ngSubmit)="login()"
+        autocomplete="off"
+      >
+        <input
+          class="form-control mright-5"
+          type="text"
+          placeholder="Username"
+          name="username"
+          [(ngModel)]="model.Username"
+        />
+        <input
+          class="form-control mright-5"
+          type="password"
+          placeholder="Password"
+          name="password"
+          [(ngModel)]="model.password"
+        />
+        <button class="btn btn-outline-success" type="submit">Login</button>
+      </form>
+    </div>
+  </div>
+</nav>
